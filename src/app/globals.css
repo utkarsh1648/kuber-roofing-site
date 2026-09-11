@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+
+  --background: #f7f9fb;
+  --foreground: #191c1e;
+  --surface: #ffffff;
+  --surface-muted: #f2f4f6;
+  --surface-raised: #eceef0;
+  --text-muted: #515f74;
+  --brand-deep: #033373;
+  --brand-blue: #0b589c;
+  --brand-blue-hover: #064779;
+  --brand-green: #67aa2f;
+  --brand-green-hover: #589227;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-raised: var(--surface-raised);
+  --color-text-muted: var(--text-muted);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-hover: var(--brand-blue-hover);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-hover: var(--brand-green-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-manrope);
+  --font-technical: var(--font-jetbrains-mono);
+
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-showcase: 1rem;
+
+  --shadow-structural: 0 1px 3px rgba(15, 23, 42, 0.06),
+    0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  --shadow-raised: 0 10px 24px -12px rgba(15, 23, 42, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  min-width: 20rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--brand-blue);
+  color: #ffffff;
+}
+
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-blue) 35%, transparent);
+  outline-offset: 3px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@layer components {
+  .site-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  .section-space {
+    padding-block: 4rem;
+  }
+
+  .technical-label {
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 64rem) {
+    .site-container {
+      padding-inline: 2rem;
+    }
+
+    .section-space {
+      padding-block: 6rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
